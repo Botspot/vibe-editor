@@ -620,6 +620,25 @@ def apply_futuristic_theme(app):
             background-color: #002208; /* Subtle dark green prelight */
         }
         
+        /* Custom Block-Toggle Checkboxes */
+        QTableView::indicator {
+            width: 14px;
+            height: 14px;
+            border: 2px solid #00FF41;
+            background-color: #000000;
+        }
+        QTableView::indicator:checked {
+            background-color: #00FF41;
+        }
+        QTableView::indicator:unchecked:selected {
+            border: 2px solid #000000;
+            background-color: #00FF41;
+        }
+        QTableView::indicator:checked:selected {
+            border: 2px solid #000000;
+            background-color: #000000;
+        }
+        
         QMenu {
             background-color: #000000;
             color: #00FF41;
