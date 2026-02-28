@@ -139,10 +139,16 @@ class CustomItemDelegate(QStyledItemDelegate):
 class TSVTableView(QTableView):
     """
     Custom QTableView to handle specific keyboard interactions,
-    specifically making 'Enter' behave like a mouse click, and
-    handling Ctrl+V pasting directly into unedited cells.
+    specifically making 'Enter' behave like a mouse click,
+    handling Ctrl+V pasting directly into unedited cells,
+    and replicating Excel's Ctrl+Arrow navigation behavior.
     """
     def keyPressEvent(self, event):
+        # Intercept Ctrl+Arrow for Excel-style navigation
+        if event.modifiers() == Qt.ControlModifier and event.key() in (Qt.Key_Up, Qt.Key_Down, Qt.Key_Left, Qt.Key_Right):
+            self._handle_ctrl_arrow(event.key())
+            return  # Prevent default processing
+
         # Intercept Ctrl+V to paste and enter edit mode
         if event.modifiers() == Qt.ControlModifier and event.key() == Qt.Key_V:
             index = self.currentIndex()
@@ -168,6 +174,80 @@ class TSVTableView(QTableView):
                 return  # Prevent the default behavior (moving to the next row)
                 
         super().keyPressEvent(event)
+
+    def _handle_ctrl_arrow(self, key):
+        """
+        Executes Excel's Ctrl+Arrow fast-forward navigation rules.
+        """
+        index = self.currentIndex()
+        if not index.isValid():
+            return
+
+        model = self.model()
+        if not model:
+            return
+
+        r = index.row()
+        c = index.column()
+        max_r = model.rowCount() - 1
+        max_c = model.columnCount() - 1
+
+        if key == Qt.Key_Up:
+            dr, dc = -1, 0
+        elif key == Qt.Key_Down:
+            dr, dc = 1, 0
+        elif key == Qt.Key_Left:
+            dr, dc = 0, -1
+        elif key == Qt.Key_Right:
+            dr, dc = 0, 1
+        else:
+            return
+
+        def is_filled(row, col):
+            idx = model.index(row, col)
+            # True checkboxes are filled, False checkboxes are empty
+            if col in getattr(model, 'chk_cols', []):
+                return model.data(idx, Qt.CheckStateRole) == Qt.Checked
+            
+            # Standard text cells
+            val = model.data(idx, Qt.DisplayRole)
+            return val is not None and str(val).strip() != ""
+
+        def in_bounds(row, col):
+            return 0 <= row <= max_r and 0 <= col <= max_c
+
+        # Step 1: Ensure the immediate adjacent cell isn't out of bounds
+        adj_r, adj_c = r + dr, c + dc
+        if not in_bounds(adj_r, adj_c):
+            return
+
+        current_filled = is_filled(r, c)
+        adjacent_filled = is_filled(adj_r, adj_c)
+
+        target_r, target_c = adj_r, adj_c
+
+        # Step 2: Apply the fast-forward logic
+        if current_filled and adjacent_filled:
+            # Case 1: Fast-forward to the last contiguous filled cell
+            while True:
+                next_r, next_c = target_r + dr, target_c + dc
+                if not in_bounds(next_r, next_c) or not is_filled(next_r, next_c):
+                    break
+                target_r, target_c = next_r, next_c
+        else:
+            # Case 2 & 3: Fast-forward through empty space to the next filled cell, or snap to the boundary
+            while not is_filled(target_r, target_c):
+                next_r, next_c = target_r + dr, target_c + dc
+                if not in_bounds(next_r, next_c):
+                    break
+                target_r, target_c = next_r, next_c
+
+        # Execute navigation: clear old selection, jump to and select the new cell
+        new_index = model.index(target_r, target_c)
+        self.clearSelection()
+        self.setCurrentIndex(new_index)
+        self.scrollTo(new_index)
+
 
 # =====================================================================
 # DATA MODEL
@@ -718,7 +798,7 @@ if __name__ == '__main__':
     qInstallMessageHandler(qt_message_handler)
 
     if len(sys.argv) < 2:
-        print("Usage: ./tsv_editor.py <path_to_tsv_or_csv_file>")
+        print("Usage: ./vibe-editor.py <path_to_tsv_or_csv_file>")
         sys.exit(1)
         
     filepath = sys.argv[1]

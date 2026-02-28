@@ -36,6 +36,7 @@ This is mainly as a demo and for my personal use. However, if you use this, like
     - The search starts from the visible part of the spreadsheet and searches down, and wraps around if no matches found.
     - Press Enter to highlight the next result **below** the current one.
     - Press Shift+Enter to highlight the next result **above** the current one.
+  - Press Ctrl+Arrow key to skip to the next/last non-empty cell, just like in other spreadsheet editors.
 - Select multiple numeric cells at once, and the status bar will display their sum.
 - Each column will auto-scale to the width of the widest value in your data.
   - If your spreadsheet is wider than the app window, horizontal scrolling is smooth and does not snap to the nearest column. (like LibreOffice does 😠)
