@@ -22,9 +22,9 @@ This is mainly as a demo and for my personal use. However, if you use this, like
 ## Features
 
 - To support cell formatting in raw text, I made a simple flag system.
-  - A row title ending with `:ro` means **read-only**, so you can't make accidental changes.
-  - A row title ending with `:chk` means **checkbox**, where TRUE means checked and anything else means unchecked.
-  - A row title ending with `:cb=value1,value2,value3` means **combo-box**, where "value1", "value2", and "value3" are easy to choose from a drop-down menu.
+  - A column title ending with `:ro` means **read-only**, so you can't make accidental changes.
+  - A column title ending with `:chk` means **checkbox**, where TRUE means checked and anything else means unchecked.
+  - A column title ending with `:cb=value1,value2,value3` means **combo-box**, where "value1", "value2", and "value3" are easy to choose from a drop-down menu.
 - Fully custom keyboard navigation. It might not come naturally to you, but to me it makes much more sense than normal spreadsheet editors.
   - Navigate cells using the arrow keys.
   - Press Enter to start editing that cell.
