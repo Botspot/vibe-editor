@@ -15,7 +15,9 @@ A few days ago I wanted a simple CSV/TSV file editor which:
 For years I've just been suffering with the choice between LibreOffice, and a poorly written shell script I made, but _this is 2026!_ Learning to code is now 100% optional for things like this.
 After about an hour, this is what Gemini 3.1 Pro delivered. Don't ask me how it works. I don't know how it works. I don't need to.
 
-This repo serves as a time capsule for what AI was capable of during this point in time. A year ago making something like this would have been a struggle. Now it was easy. How much will it improve in another year?
+## Purpose
+This repo serves as a time capsule for what AI was capable of during this point in time. A year ago making something like this would have been a struggle. Now it was easy. How much will it improve in another year?  
+This is mainly as a demo and for my personal use. However, if you use this, like it, and want to see a feature added, go [open an issue](https://github.com/Botspot/vibe-editor/issues) or [pull request](https://github.com/Botspot/vibe-editor/pulls).
 
 ## Features
 
