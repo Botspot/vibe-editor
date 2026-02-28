@@ -1,0 +1,31 @@
+date:ro	description	website	amount:ro	balance:ro	taxable?:chk	Project:cb=,Alpha,Beta,Gamma,Delta
+9/20/2025	Office supplies	Staples	-$32.00	$10295.00		Beta
+9/19/2025	Prototype parts	Home Depot	-$45.00	$10327.00		Alpha
+9/19/2025	Sold widget	Etsy	$130.00	$10372.00	TRUE	Gamma
+9/19/2025	Freelance payout	Upwork	$875.00	$10242.00		
+9/18/2025	Sold widget	Etsy	$55.00	$9367.00	TRUE	Gamma
+9/18/2025	Donation	Wikipedia	-$15.00	$9312.00		
+9/18/2025	Shipping labels	Shippo	-$35.00	$9327.00	TRUE	Gamma
+9/17/2025	Sold 2 widgets	Etsy	$110.00	$9362.00	TRUE	Gamma
+9/17/2025	Freelance payout	Upwork	$850.00	$9252.00		
+9/16/2025	Marketing ads	Facebook	-$50.00	$8402.00		Beta
+9/16/2025	Hardware tools	Home Depot	-$34.00	$8452.00		Alpha
+9/15/2025	Groceries	Safeway	-$82.00	$8486.00		
+9/15/2025	Sold 1 widget	Etsy	$95.00	$8568.00	TRUE	Gamma
+9/15/2025	Replacement part	Amazon	-$18.00	$8473.00		Alpha
+9/15/2025	3D printer filament	Amazon	-$48.00	$8491.00		Alpha
+9/12/2025	Cloud backup	Google One	-$10.00	$8539.00		Beta
+9/12/2025	Lunch meeting	Panera	-$24.00	$8549.00		Beta
+9/11/2025	Sold 3 widgets	Etsy	$210.00	$8573.00	TRUE	Gamma
+9/10/2025	Hardware tools	Home Depot	-$115.00	$8363.00		Alpha
+9/10/2025	Internet bill	Comcast	-$85.00	$8478.00		Beta
+9/9/2025	Shipping labels	Shippo	-$22.00	$8563.00	TRUE	Gamma
+9/9/2025	Groceries	Safeway	-$65.00	$8585.00		
+9/8/2025	Sold 1 widget	Etsy	$45.00	$8650.00	TRUE	Gamma
+9/8/2025	Electronics parts	Digi-Key	-$135.00	$8605.00		Alpha
+9/6/2025	Sold 1 widget	Etsy	$65.00	$8740.00	TRUE	Gamma
+9/5/2025	Web hosting	AWS	-$45.00	$8675.00		Beta
+9/3/2025	Freelance payout	Upwork	$900.00	$8720.00		
+9/2/2025	Office rent	WeWork	-$300.00	$7820.00		Beta
+9/2/2025	Sold 2 widgets	Etsy	$120.00	$8120.00	TRUE	Gamma
+9/1/2025	Software subscription	Adobe	-$50.00	$8000.00		Beta
