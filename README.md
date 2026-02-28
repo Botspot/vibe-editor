@@ -33,9 +33,16 @@ This repo serves as a time capsule for what AI was capable of during this point 
     - The search starts from the visible part of the spreadsheet and searches down, and wraps around if no matches found.
     - Press Enter to highlight the next result **below** the current one.
     - Press Shift+Enter to highlight the next result **above** the current one.
-  - Select multiple numeric cells at once, and the status bar will display their sum.
-  - Each column will auto-scale to the width of the widest value in your data.
-    - If your spreadsheet is wider than the app window, horizontal scrolling is smooth and does not snap to the nearest column. (like LibreOffice does 😠)
+- Select multiple numeric cells at once, and the status bar will display their sum.
+- Each column will auto-scale to the width of the widest value in your data.
+  - If your spreadsheet is wider than the app window, horizontal scrolling is smooth and does not snap to the nearest column. (like LibreOffice does 😠)
+- Open a file by specifying it as an argument to this python script.
+  - When saving, it makes changes to the input file you specified.
+- The usual annoying stuff is gone. (Looking at you, LibreOffice...)
+  - No "helpful tips" popup.
+  - No "confirm file overwrite" popup.
+  - No "close with unsaved changes" popup.
+  - No "CSV format is dumb and you should consider using ODS" popup.
 
 # Dependencies
 This uses PyQT5, so on Debian-based operating systems this should be enough:
