@@ -8,7 +8,8 @@ A few days ago I wanted a simple CSV/TSV file editor which:
 - Is minimal and fast on Raspberry Pi hardware
 - Has a cool hacker-style dark mode
 - Has intuitive keyboard/mouse navigation, that actually makes sense to me
-- Supports drop-down menus, checkboxes, and colors negative numbers red.
+- Supports cells with drop-down menus and checkboxes
+- Colors negative numbers red.
 - Displays a sum when multiple numeric cells are selected
 - Can search the spreadsheet easily
 
