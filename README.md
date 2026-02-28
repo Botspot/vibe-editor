@@ -41,6 +41,7 @@ This is mainly as a demo and for my personal use. However, if you use this, like
 - Open a file by specifying it as an argument to this python script.
   - When saving, it makes changes to the input file you specified.
 - The usual annoying stuff is gone. (Looking at you, LibreOffice...)
+  - No 30-second app launch time.
   - No "helpful tips" popup.
   - No "confirm file overwrite" popup.
   - No "close with unsaved changes" popup.
